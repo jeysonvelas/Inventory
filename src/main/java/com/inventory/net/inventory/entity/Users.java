@@ -2,7 +2,6 @@ package com.inventory.net.inventory.entity;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,8 +30,8 @@ public class Users {
     @Column(length = 10)
     private String perfil;
 
-    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Inventario> inventarios = new ArrayList<>();
+    @OneToMany(mappedBy = "users")
+    private List<Inventario> inventarios;
 
 
     public Users() {

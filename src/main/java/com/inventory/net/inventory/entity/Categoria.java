@@ -5,35 +5,31 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "producto")
-public class Producto {
+@Table(name = "categoria")
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_producto", nullable = false, unique = true)
+    @Column(name = "id_categoria", nullable = false, unique = true)
     private Long id;
 
     @Column(length = 50)
     private String name;
 
-    @Column(length = 300)
-    private String description;
-
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "categoria")
     private List<Inventario> inventarios;
 
 
-    public Producto() {
+    public Categoria() {
     }
 
-    public Producto(Long id) {
+    public Categoria(Long id) {
         this.id = id;
     }
 
-    public Producto(Long id, String name, String description, List<Inventario> inventarios) {
+    public Categoria(Long id, String name, List<Inventario> inventarios) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.inventarios = inventarios;
     }
 
@@ -53,14 +49,6 @@ public class Producto {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public List<Inventario> getInventarios() {
         return inventarios;
     }
@@ -71,10 +59,9 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
+        return "Categoria{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", inventarios=" + inventarios +
                 '}';
     }
