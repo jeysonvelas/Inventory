@@ -3,6 +3,7 @@ package com.inventory.net.inventory.service;
 
 import com.inventory.net.inventory.entity.Users;
 import com.inventory.net.inventory.repository.UserRepository;
+import org.apache.catalina.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,12 +45,11 @@ public class UserService {
 
     }
 
+    public List<Users> get() {
 
-   /* public void delete(Long id) {
-        userRepository.deleteById(id);
+        return userRepository.findAll();
 
-    }*/
-
+    }
 
     /*public User update(User newUser, Long id) {
         return userRepository.findById(id)
@@ -62,4 +62,13 @@ public class UserService {
                         }
                 ) .orElseThrow(() -> new RuntimeException("No se encontró el usuario con el ID proporcionado: " + id));
     }*/
+
+
+   /* public void delete(Long id) {
+        userRepository.deleteById(id);
+
+    }*/
+
+
+
 }

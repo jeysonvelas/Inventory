@@ -3,6 +3,8 @@ package com.inventory.net.inventory.controller;
 
 import com.inventory.net.inventory.caseuse.CreateUser;
 import com.inventory.net.inventory.entity.Users;
+import com.inventory.net.inventory.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +16,11 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserRestController {
 
-
-    //private GetUser getUser;
     @Autowired
     private CreateUser createUser;
+
+    @Autowired
+    private UserService userService;
 
     //private DeleteUser deleteUser;
 
@@ -25,12 +28,12 @@ public class UserRestController {
 
 
     //Servicio Rest para obtener una Lista
-    /*@GetMapping("/")
-    List<User> get(){
+    @GetMapping("/")
+    List<Users> get(){
 
-    return getUser.getAll();
+    return userService.get();
 
-    }*/
+    }
 
     //Servicio Rest para guardar un nuevo usuario
     @PostMapping("/")
