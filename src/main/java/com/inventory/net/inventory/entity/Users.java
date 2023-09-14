@@ -30,7 +30,7 @@ public class Users {
     @Column(length = 10)
     private String perfil;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Inventario> inventarios;
 
 

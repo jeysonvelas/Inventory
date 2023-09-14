@@ -19,7 +19,7 @@ public class Producto {
     @Column(length = 300)
     private String description;
 
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Inventario> inventarios;
 
 

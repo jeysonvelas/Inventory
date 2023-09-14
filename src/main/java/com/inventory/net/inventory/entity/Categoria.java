@@ -16,7 +16,7 @@ public class Categoria {
     @Column(length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Inventario> inventarios;
 
 
