@@ -5,6 +5,7 @@ import com.inventory.net.inventory.entity.Users;
 import com.inventory.net.inventory.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,9 +28,8 @@ public class UserRestController {
 
     //Servicio Rest para guardar un nuevo usuario
     @PostMapping("/")
-    @ResponseStatus(HttpStatus.OK)
-    public void newUser(@RequestBody Users newUser){
-        userService.save(newUser);
+    public ResponseEntity newUser(@RequestBody Users newUser){
+        return new ResponseEntity(userService.save(newUser), HttpStatus.CREATED);
 
     }
 
