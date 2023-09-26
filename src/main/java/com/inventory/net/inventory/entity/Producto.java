@@ -11,7 +11,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto", nullable = false, unique = true)
-    private Long id;
+    private Long idProducto;
 
     @Column(length = 50)
     private String name;
@@ -19,30 +19,30 @@ public class Producto {
     @Column(length = 300)
     private String description;
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "producto")
     private List<Inventario> inventarios;
 
 
     public Producto() {
     }
 
-    public Producto(Long id) {
-        this.id = id;
+    public Producto(Long idProducto) {
+        this.idProducto = idProducto;
     }
 
-    public Producto(Long id, String name, String description, List<Inventario> inventarios) {
-        this.id = id;
+    public Producto(Long idProducto, String name, String description, List<Inventario> inventarios) {
+        this.idProducto = idProducto;
         this.name = name;
         this.description = description;
         this.inventarios = inventarios;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdProducto() {
+        return idProducto;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdProducto(Long idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getName() {
@@ -72,7 +72,7 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "id=" + id +
+                "id=" + idProducto +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", inventarios=" + inventarios +

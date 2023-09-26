@@ -11,34 +11,34 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria", nullable = false, unique = true)
-    private Long id;
+    private Long idCategoria;
 
     @Column(length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "categoria")
     private List<Inventario> inventarios;
 
 
     public Categoria() {
     }
 
-    public Categoria(Long id) {
-        this.id = id;
+    public Categoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
-    public Categoria(Long id, String name, List<Inventario> inventarios) {
-        this.id = id;
+    public Categoria(Long idCategoria, String name, List<Inventario> inventarios) {
+        this.idCategoria = idCategoria;
         this.name = name;
         this.inventarios = inventarios;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getName() {
@@ -60,7 +60,7 @@ public class Categoria {
     @Override
     public String toString() {
         return "Categoria{" +
-                "id=" + id +
+                "id=" + idCategoria +
                 ", name='" + name + '\'' +
                 ", inventarios=" + inventarios +
                 '}';

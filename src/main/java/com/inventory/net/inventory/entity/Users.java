@@ -11,7 +11,7 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user", nullable = false, unique = true)
-    private Long id;
+    private Long idUser;
 
     @Column(length = 50)
     private String name;
@@ -30,19 +30,19 @@ public class Users {
     @Column(length = 10)
     private String perfil;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "users")
     private List<Inventario> inventarios;
 
 
     public Users() {
     }
 
-    public Users(Long id) {
-        this.id = id;
+    public Users(Long idUser) {
+        this.idUser = idUser;
     }
 
-    public Users(Long id, String name, String apellido, String email, String telefono, String password, String perfil, List<Inventario> inventarios) {
-        this.id = id;
+    public Users(Long idUser, String name, String apellido, String email, String telefono, String password, String perfil, List<Inventario> inventarios) {
+        this.idUser = idUser;
         this.name = name;
         this.apellido = apellido;
         this.email = email;
@@ -52,12 +52,12 @@ public class Users {
         this.inventarios = inventarios;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdUser() {
+        return idUser;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
     }
 
     public String getName() {
@@ -119,7 +119,7 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                "id=" + id +
+                "id=" + idUser +
                 ", name='" + name + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", email='" + email + '\'' +

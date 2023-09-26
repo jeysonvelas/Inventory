@@ -23,10 +23,13 @@ public class Inventario {
     private LocalDate fecha;
 
     @ManyToOne
+    @JoinColumn(name = "idUser", insertable = false, updatable = false)
     private Users users;
     @ManyToOne
+    @JoinColumn(name = "idProducto", insertable = false, updatable = false)
     private Producto producto;
     @ManyToOne
+    @JoinColumn(name = "idCategoria", insertable = false, updatable = false)
     private Categoria categoria;
 
     public Inventario() {
